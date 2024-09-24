@@ -1,16 +1,18 @@
 import sys
 
-N, M = map(int, input().split())
-A = set()
-B = set()
+# 한 번에 모든 입력을 받아 처리
+input = sys.stdin.read
+data = input().splitlines()
 
-for _ in range(N):
-    A.add(sys.stdin.readline().strip())
-for _ in range(M):
-    B.add(sys.stdin.readline().strip())
+# N과 M 입력 받기
+N, M = map(int, data[0].split())
 
-answer = sorted(A.intersection(B))
+# 집합 A와 B 생성
+A = set(data[1:N+1])
+B = set(data[N+1:N+M+1])
 
-print(len(answer))
-for name in answer:
-    print(name)
+# 교집합 결과 구하기
+answer = sorted(A & B)
+
+# 출력
+sys.stdout.write(f"{len(answer)}\n" + "\n".join(answer) + "\n")
