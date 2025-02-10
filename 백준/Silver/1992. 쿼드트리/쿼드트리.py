@@ -2,7 +2,6 @@ import sys
 input = sys.stdin.readline
 
 def sol(arr, N):
-    global result
     # base condition
     if N == 1:
         result.append("1" if arr[0][0] == 1 else "0")
